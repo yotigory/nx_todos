@@ -1,0 +1,9 @@
+{
+  "name": "todos-monorepo",
+  "version": "1.0.0",
+  "main": "main.tsx",
+  "license": "MIT",
+  "scripts": {
+    "build:todos": "npm --prefix todos run build"
+  }
+}
