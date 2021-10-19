@@ -6,13 +6,13 @@ const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {
-    fetch('api/todos')
+    fetch('/api/todos')
       .then((_) => _.json())
       .then(setTodos);
   }, []);
 
   function addTodo() {
-    fetch('api/addTodo', {
+    fetch('/api/addTodo', {
       method: 'POST',
       body: '',
     })
