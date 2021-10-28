@@ -5,7 +5,7 @@ interface Todo {
   title: string;
 }
 
-const lngs:any = {
+const lngs: { [key: string]: { nativeName: string } }  = {
   en: { nativeName: 'English' },
   ja: { nativeName: '日本語' }
 };
