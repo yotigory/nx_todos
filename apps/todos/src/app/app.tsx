@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 
 interface Todo {
   title: string;
 }
 
+const lngs:any = {
+  en: { nativeName: 'English' },
+  ja: { nativeName: '日本語' }
+};
+
+
 export const App = () => {
+	const { t, i18n } = useTranslation();
   const [todos, setTodos] = useState<Todo[]>([
     { title: 'Todo 1' },
     { title: 'Todo 2' },
@@ -21,15 +29,22 @@ export const App = () => {
 
   return (
     <>
-      <h1>Todos</h1>
+      <h1>{t('Todos')}</h1>
       <ul>
         {todos.map((t) => (
           <li className={'todo'}>{t.title}</li>
         ))}
       </ul>
       <button id={'add-todo'} onClick={addTodo}>
-        Add Todo
-      </button>
+			{t('Add Todo')}
+			</button>
+			<br />
+			<p>言語切り替えボタン</p>
+			{Object.keys(lngs).map((lng) => (
+            <button key={lng} type="submit" onClick={() => i18n.changeLanguage(lng)}>
+              {lngs[lng].nativeName}
+            </button>
+          ))}
     </>
   );
 };
