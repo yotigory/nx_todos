@@ -18,10 +18,10 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-		resources: {
-			en: { translation: enTranslation },
-			ja: { translation: jaTranslation },
-		},
+    resources: {
+      en: { translation: enTranslation },
+      ja: { translation: jaTranslation },
+    },
   });
 
 export default i18n;

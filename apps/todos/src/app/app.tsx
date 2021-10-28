@@ -5,14 +5,13 @@ interface Todo {
   title: string;
 }
 
-const lngs: { [key: string]: { nativeName: string } }  = {
+const lngs: { [key: string]: { nativeName: string } } = {
   en: { nativeName: 'English' },
-  ja: { nativeName: '日本語' }
+  ja: { nativeName: '日本語' },
 };
 
-
 export const App = () => {
-	const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [todos, setTodos] = useState<Todo[]>([
     { title: 'Todo 1' },
     { title: 'Todo 2' },
@@ -36,15 +35,19 @@ export const App = () => {
         ))}
       </ul>
       <button id={'add-todo'} onClick={addTodo}>
-			{t('Add Todo')}
-			</button>
-			<br />
-			<p>言語切り替えボタン</p>
-			{Object.keys(lngs).map((lng) => (
-            <button key={lng} type="submit" onClick={() => i18n.changeLanguage(lng)}>
-              {lngs[lng].nativeName}
-            </button>
-          ))}
+        {t('Add Todo')}
+      </button>
+      <br />
+      <p>言語切り替えボタン</p>
+      {Object.keys(lngs).map((lng) => (
+        <button
+          key={lng}
+          type="submit"
+          onClick={() => i18n.changeLanguage(lng)}
+        >
+          {lngs[lng].nativeName}
+        </button>
+      ))}
     </>
   );
 };
